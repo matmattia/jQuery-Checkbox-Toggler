@@ -2,12 +2,12 @@
 * jQuery Checkbox Toggler
 * @name jquery.checkboxtoggler.js
 * @author Mattia - http://www.matriz.it
-* @version 1.0.0
-* @date July 2, 2013
+* @version 1.1.0
+* @date December 30, 2022
 * @category jQuery plugin
-* @copyright (c) 2013 Mattia at Matriz.it (info@matriz.it)
-* @license MIT - http://opensource.org/licenses/mit-license.php
-* @example Visit http://www.matriz.it/projects/jquery-checkbox-toggler/ for more informations about this jQuery plugin
+* @copyright (c) 2022 Mattia at Matriz.it (info@matriz.it)
+* @license MIT - https://opensource.org/licenses/mit-license.php
+* @example Visit https://www.matriz.it/projects/jquery-checkbox-toggler/ for more informations about this jQuery plugin
 */
 (function ($) {
 	var checkbox_toggler = {
@@ -37,16 +37,16 @@
 					}
 				}
 			}
-			$(t).attr('checked', all_c ? 'checked' : '');
+			$(t).prop('checked', all_c);
 			if ($.isFunction(options.onChange)) {
 				options.onChange.call(t, l, c.filter(':checked').length);
 			}
 		},
 		'toggle': function(t, s, options) {
 			var c = this.getCheckboxes(options);
-			$(t).attr('checked', s ? 'checked' : '');
+			$(t).prop('checked', !!s);
 			if (c.length > 0) {
-				c.attr('checked', s ? 'checked' : '');
+				c.prop('checked', !!s);
 			}
 			if ($.isFunction(options.onChange)) {
 				options.onChange.call(t, c.length, c.filter(':checked').length);
